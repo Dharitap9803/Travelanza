@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Travelanza</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* Background gradient and global styles */
+        body {
+            background: linear-gradient(120deg, #087ac7, #13047e);
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Additional styling */
+        .section__container {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: auto;
+            text-align:center;
+        }
+
+        .section__subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .journey__grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Add this to wrap images to the next line */
+            gap: 1rem; /* Add some spacing between images */
+        }
+
+        .country__card {
+            background-color: #fff;
+            padding: 0;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 1rem;
+            overflow: hidden; /* Ensure content doesn't overflow */
+            position: relative;
+        }
+
+        .country__card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .country__image {
+            overflow: hidden;
+            position: relative;
+            height: 300px; /* Adjust the height as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .country__image img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .country__name {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .country__title {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            font-size: 1.4rem;
+            margin-top: 1rem;
+            color: black; /* Add text color */
+        }
+
+        /* Carousel styling */
+     /* Increase the size of the .carousel-caption element */
+    .carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px; /* Increase padding for more space */
+    border-radius: 5px;
+    width: 120%; /* Increase the width as desired, e.g., 120% */
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px; /* Move it up from the bottom as needed */
+    }
+
+     /* Adjust other styles as needed */
+
+        .carousel-caption h5,
+        .carousel-caption p {
+            color: #fff;
+        }
+        .destination-container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-wrap:wrap;
+            overflow-x:auto;
+            white-space:nowrap;
+            scroll-snap-type: x mandatory;
+        }
+        .destination{
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            margin-right: 20px;
+            display:inline-block;
+            text-align: center;
+            margin:10px;
+        }
+        .destination img{
+            margin-right:10px;
+        }
+
+        .travel_container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-wrap:wrap;
+            overflow-x:auto;
+            white-space:nowrap;
+            scroll-snap-type: x mandatory;
+        }
+        .travel{
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+            margin-right: 20px;
+            display:inline-block;
+            text-align: center;
+            margin:10px;
+
+        }
+        .travel img{
+            margin-right:10px;
+        }
+           
+        .booking__type {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-auto-flow: column;
+            grid-gap: 40px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+          }
+          
+          .image-item {
+            text-align: center;
+            width: 250px;
+            height: auto; 
+            margin: 5px;
+          }
+          
+          .image-item img {
+            margin-right:5px;
+            padding: 0;
+            width: auto; 
+            height: auto;
+            max-width: 100%; 
+            max-height: 100%; 
+          }
+          
+          .image-item p {
+            margin: 0;
+            padding: 5px;
+            font-size: 15px;
+          }
+          .h2 {
+            text-align: center;
+            font-family:'Lucida Sana';
+        }
+          
+</style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark"> 
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Travelanza</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bookings
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="flights.html">Flights</a>
+                            <a class="dropdown-item" href="hotels.html">Hotels</a>
+                            <a class="dropdown-item" href="resortsandvillas.html">Resorts and Villas</a>
+                            <a class="dropdown-item" href="trainsindex.html">Trains</a>
+                            <a class="dropdown-item" href="buses.html">Buses</a>
+                            <a class="dropdown-item" href="cabs.html">Cabs</a>
+                            <a class="dropdown-item" href="attractions.html">Attractions</a>
+                            <a class="dropdown-item" href="airporttaxis.html">Airport Taxis</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                </ul>
+            </div>
+           
+            <div class="ml-auto">
+                <a class="btn btn-light" href="login.html">Login</a>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#registrationModal">Register</button>
+            </div>
+
+        </div>
+    </nav>
+</header>
+
+    <div class="container mt-5">
+        <h1>Welcome to Travelanza</h1>
+        <p>Your Ultimate Destination for Thrilling Adventures and Unforgettable Memories</p>
+    </div>
+
+    <div class="bd-example">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="image1.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Voyager,c'est naître et mourir à chague instant.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="image2.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Better than my wildest dreams,an adventure a day keeps the doctor away.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="image3.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>In London everyone is different and that means anyone can fit in</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="image4.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Fourth slide label</h5>
+                        <p>Witnessing the symbol of eternal love.Taj Mahal</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="image5.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Fifth slide label</h5>
+                        <p>A Journey of a thousand miles begins with a single step</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Additional Sections -->
+    <section>
+            <h2 style="text-align:center;">EXPLORE DIFFERENT BOOKING TYPES.</h2>
+            <div class="row">
+                <div class="booking__type">
+                <div class=" image-item">
+                    <img src="booking-type1.avif" alt="Booking Type 1" style="width:250px; height:200px">
+                    <p>Booking Type 1</p>
+                </div>
+                <div class=" image-item">
+                    <img src="booking-type2.jpg" alt="Booking Type 2" style="width:250px; height:200px">
+                    <p>Booking Type 2</p>
+                </div>
+                <div class=" image-item">
+                    <img src="booking-type3.jpg" alt="Booking Type 3" style="width:250px; height:200px">
+                    <p>Booking Type 3</p>
+                </div>
+                <div class=" image-item">
+                    <img src="booking-type4.jpg" alt="Booking Type 4" style="width:250px; height:200px">
+                    <p>Booking Type 4</p>
+                </div>
+                <div class=" image-item">
+                    <img src="booking-type5.jpg" alt="Booking Type 5" style="width:250px; height:200px">
+                    <p>Booking Type 5</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <h2 style="text-align:center; text-transform:uppercase; color:beige;">Trending Destinations</h2>
+        <h3 style="text-align:center;color:antiquewhite">Most popular choices for travellers from India.</h3>
+        <div class="destination-container">
+        <div class="destination">
+            <img src="newdelhi.webp" alt="New Delhi Image" style="width:200px; height:130px;">
+            <a href="https://www.travelanza.com/search?destination=New+Delhi,+India"><br>Book New Delhi,<br>India on Travelanza<br></a>
+        </div>
+          
+     <div class="destination">
+            <img src="banglore.jpg" alt="Bangalore Image" style="width:200px; height:130px;">
+            <a href="https://www.travelanza.com/search?destination=Bangalore,+India"><br>Book Bangalore,<br>India on Travelanza<br></a>
+        </div>
+    
+        <div class="destination">
+            <img src="mumbai.jpg" alt="Mumbai Image" style="width:200px; height:130px;">
+            <a href="https://www.travelanza.com/search?destination=Mumbai,+India"><br>Book Mumbai,<br>India on Travelanza<br></a>
+        </div>
+    
+        <div class="destination">
+        <img src="chennai.webp" alt="Chennai Image" style="width:200px; height:130px;">
+            <a href="https://www.travelanza.com/search?destination=Chennai,+India"><br>Book Chennai,<br> India on Travelanza<br></a>
+        </div>
+    
+        <div class="destination">
+            <img src="hyderabad.jpg" alt="Hyderabad Image" style="width:200px; height:130px;">
+            <a href="https://www.travelanza.com/search?destination=Hyderabad,+India"><br>Book Hyderabad,<br> India on Travelanza<br></a>
+        </div>
+    
+        <div class="destination">
+          <img src="jaipur.webp" alt="Jaipur Image" style="width:200px; height:130px;">
+            <a href="https://www.travelanza.com/search?destination=Jaipur,+India"><br>Book Jaipur, <br>India on Travelanza<br></a>
+        </div>
+        <div class="destination">
+            <img src="mussoorie.jpg" alt="Mussoorie Image" style="width:200px; height:130px;">
+              <a href="https://www.travelanza.com/search?destination=Mussoorie,+India"><br>Book Mussoorie, <br>India on Travelanza<br></a>
+          </div>
+          <div class="destination">
+            <img src="ooty.jpg" alt="Ooty Image" style="width:200px; height:130px;">
+              <a href="https://www.travelanza.com/search?destination=Ooty,+India"><br>Book Ooty, <br>India on Travelanza<br></a>
+          </div>
+          <div class="destination">
+            <img src="puducherry.jpg" alt="Puducherry Image" style="width:200px; height:130px;">
+              <a href="https://www.travelanza.com/search?destination=Puducherry,+India"><br>Book Puducherry, <br>India on Travelanza<br></a>
+          </div>
+          <div class="destination">
+            <img src="ranthambore.jpg" alt="Ranthambore Image" style="width:200px; height:130px;">
+              <a href="https://www.travelanza.com/search?destination=Ranthambore,+India"><br>Book Ranthambore, <br>India on Travelanza<br></a>
+          </div>
+          <div class="destination">
+            <img src="gujarat.jpg" alt="Gujarat Image" style="width:200px; height:130px;">
+              <a href="https://www.travelanza.com/search?destination=Gujarat,+India"><br>Book Gujarat, <br>India on Travelanza<br></a>
+          </div>
+          <div class="destination">
+            <img src="goa.jpg" alt="Goa Image" style="width:200px; height:130px;">
+              <a href="https://www.travelanza.com/search?destination=Goa,+India"><br>Book Goa, <br>India on Travelanza<br></a>
+          </div>
+        </div>
+
+<br>
+<br>
+<br>
+        <h1 style="text-align:center; text-transform:uppercase; color:beige;">Handpicked Collections for you</h1>
+        <div class="travel_container">
+            <div class="travel">
+                <img src="i1.jpg"  alt="place" style="width:300px; height:200px;">
+                <p><br>Stays in & Around Delhi for<br> a Weekend<br><p>
+                </div>
+                <div class="travel">
+                <img src="i2.webp"  alt="place" style="width:300px; height:200px;">
+                <p><br>Stays in & Around Mumbai <br>for a Weekend<br><p>
+                </div>
+                <div class="travel">
+                <img src="i3.jpg"  alt="place" style="width:300px; height:200px;">
+                <p><br>Stays in & Around Bangalore <br>for a Weekend<br><p>
+                </div>
+                <div class="travel">
+                <img src="i4.jpg"  alt="place" style="width:300px; height:200px;">
+                <p><br><br>Beach destination<br><p>
+                </div>
+                <div class="travel">
+                <img src="i5.jpg"  alt="place" style="width:300px; height:200px;">
+                <p><br>Weekend Gateway<br><p>
+                </div>
+                <div class="travel">
+                <img src="i6.jpg"  alt="place" style="width:300px; height:200px;">
+                <p><br>Hill Stations<br><p>
+                </div>
+                <div class="travel">
+                <img src="i7.jpg"  alt="place" style="width:300px; height:200px;">
+                <p><br>Adventure Destinations<br><p>
+                </div>
+                <div class="travel">
+                <img src="i8.jpg"  alt="place" style="width:300px; height:200px;">
+                <p><br>Heritage Destinations<br><p>
+                </div>
+                <div class="travel">
+                <img src="i9.jpg"  alt="place" style="width:300px; height:200px;">
+                <p><br>Pilgrimage Destinations<br><p>
+                </div>
+                <div class="travel">
+                <img src="i10.jpg"  alt="place"style="width:300px; height:200px;">
+                <p><br>Relaxation Destinations<br><p>
+                </div>
+        </div>
+
+
+    </section>
+
+    <!-- Additional Sections -->
+<section class="services__section">
+    <div class="section__container">
+        <h2 class="services__title">Our Services</h2>
+        <div class="services__grid">
+            <div class="service__card">
+                <h3>Trending Bookings</h3>
+                <p>Discover the latest and most popular travel packages.</p>
+            </div>
+            <div class="service__card">
+                <h3>Special Offers</h3>
+                <p>Explore exclusive deals and discounts for your next adventure.</p>
+            </div>
+            <div class="service__card">
+                <h3>Customer Reviews</h3>
+                <p>Hear what our travelers have to say about their unforgettable experiences.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <section class="footer-section">
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+        <div>
+            <a href="https://www.facebook.com/"><i class="fa fa-facebook">Facebook</i></a>
+            <a href="https://twitter.com/"><i class="fa fa-twitter">Twitter</i></a>
+            <a href="https://www.instagram.com/"><i class="fa fa-instagram">Instagram</i></a>
+            <!-- Add more social media links here -->
+        </div>
+        <ol class="footer-list">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="cookies.html">Cookies Use</a></li>
+            <li><a href="terms.html">Terms and Conditions</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ol>
+    </section>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Registration Modal -->
+<div class="modal fade" id="registrationModal" tabindex="-1" role="dialog" aria-labelledby="registrationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="registrationModalLabel">Tourist Registration</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Tourist registration form -->
+                <form>
+                    <!-- Personal Information -->
+                    <h4>Personal Information</h4>
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" class="form-control" id="full-name" placeholder="Enter full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthdate">Date of Birth</label>
+                        <input type="date" class="form-control" id="birthdate">
+                    </div>
+
+                    <!-- Contact Information -->
+                    <h4>Contact Information</h4>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="Enter phone number">
+                    </div>
+
+                    <!-- Travel Preferences -->
+                    <h4>Travel Preferences</h4>
+                    <div class="form-group">
+                        <label for="destination">Favorite Travel Destination</label>
+                        <input type="text" class="form-control" id="destination" placeholder="Enter your favorite destination">
+                    </div>
+                    <div class="form-group">
+                        <label for="interests">Travel Interests</label>
+                        <select class="form-control" id="interests">
+                            <option value="adventure">Adventure</option>
+                            <option value="beach">Beach</option>
+                            <option value="culture">Culture</option>
+                            <option value="nature">Nature</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="relaxation">Relaxation</option>
+                            <option value="others">Others</option>
+                        </select>
+                    </div>
+
+                    <!-- Security -->
+                    <h4>Security</h4>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirm-password" placeholder="Confirm password">
+                    </div>
+                </form>
+            </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Register</button>
+    </div>
+</div>
+</div>
+
+    <!-- JavaScript for the horizontal scrolling effect and dynamic loading of cities -->
+    <script>
+        $(document).ready(function() {
+            // Function to check if the user has scrolled to the right
+            function isScrolledToRight(element) {
+                return element.scrollLeft + element.clientWidth >= element.scrollWidth;
+            }
+
+            // Handle scroll event
+            $('.destination-container').scroll(function() {
+                // Check if the user has scrolled to the right
+                if (isScrolledToRight(this)) {
+                    // Add new cities when scrolled to the right
+                    $(this).append(`
+                        <div class="destination">
+                            <img src="newcity.jpg" alt="New City Image" style="width:200px; height:130px;">
+                            <a href="https://www.travelanza.com/search?destination=New+City,+Country"><br>Book New City,<br>Country on Travelanza<br></a>
+                        </div>
+                    `);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
