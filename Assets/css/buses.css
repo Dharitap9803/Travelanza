@@ -1,0 +1,208 @@
+* {
+	box-sizing: border-box;
+}
+.bus_cont{
+	border-radius: 50%;
+}
+
+body{
+	margin-top: 63px;
+}
+.form__group{
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+/*overflow-x:auto;*/
+white-space:nowrap;
+/*scroll-snap-type: x mandatory;*/
+flex: 0 0 auto;
+scroll-snap-align: start;
+margin-right: 20px;
+display:inline-block;
+text-align: center;
+margin:10px;
+}
+
+.form__group{
+	flex: 1 1 280px;
+	padding: 1rem;
+	text-align: center;
+  }
+.home-banner {
+	/* "../" for back to main folder */
+	background-image: url(buspic.jpg);
+	background-size: cover;
+	background-repeat: round;
+	height: 450px;
+    width:100%;
+}
+
+
+.input-search-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	right: 50%;
+}
+
+.section__container{
+    max-width:var(--max-width);
+    margin:auto;
+    padding:1rem 1rem;
+}
+
+.booking__container{
+    border-radius: 2rem;
+    border: 1px solid var(--extra-light);
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.1);
+}
+
+.booking__container form{
+    margin-top:3rem;
+    display:grid;
+    grid-template-columns:repeat(4,1fr)auto;
+    gap:1rem;
+}
+
+.booking__container  .input__content{
+    width:100%
+}
+
+.booking__container  .form__group{
+    display:flex;
+    align-items:center;
+    gap:1rem;
+	
+}
+
+.booking__container  .form__group span{
+    padding:10px;
+    font-size:1.5rem;
+    color:var(--text-dark);
+    background-color: var(--extra-light);
+    border-radius:1rem;
+	
+}
+
+.booking__container  .input__group{
+    width:100%;
+    position:relative;
+}
+
+.booking__container label{
+    position:absolute;
+    top:50%;
+    left:0;
+    transform:translateY(-50%);
+    font-size:1.2rem;
+    font-weight:500;
+    color:var(--text-dark);
+    pointer-events:none;
+    transition:0.3s;
+}
+
+
+.booking__container input{
+    width:100%;
+    padding:10px 0;
+    font-size: 1rem;
+    outline:none;
+    border:none;
+    border-bottom:1px solid var(--primary-color);
+    color:var(--text-dark);
+}
+
+.booking__container  input:focus  ~ label{
+    font-size:0.8rem;
+    top:0;
+}
+
+.booking__container  .form__group  p{
+    margin-top:0.5rem;
+    font-size:0.8rem;
+    color:var(--textlight);
+}
+
+.booking__container  .btn{
+    padding:1rem;
+    font-size:1.5rem;
+}*/
+
+
+.inputIcon {
+	position: absolute;
+	left: 5px;
+	font-size: 25px;
+	vertical-align: middle;
+	color: #AAA;
+}
+
+.inputForm {
+	width: 225px;
+	height: 40px;
+	padding-left: 28px;
+}
+
+.inputLabel-default {
+	position: absolute;
+	left: 30px;
+	color: grey;
+	font-weight: 350;
+	font-size: 15px;
+	margin-top: 8px;
+	transition-duration: 0.3s;
+}
+	.inputLabel-focusIn {
+		position: absolute;
+		left: 30px;
+		color: #9b9b9b;
+		font-size: 10px;	
+		margin-top: 1px;
+	}
+
+
+.holiday-coupon-container {
+	width: 540px;
+	position: absolute;
+	left: 30%;
+	right: 30%;
+	top: -4em;
+}
+	.holiday-coupon-container > .d-table-cell {
+		height: 100px;
+	}
+
+
+.cashback-container > div {
+	transition: transform .2s;
+}
+	.cashback-container > div:hover {
+		transform: scale(1.05);
+	}
+
+.on-time-guarantee,
+.track-my-bus,
+.ios-android-container .d-flex,
+.we-promise-container > div:nth-child(2) {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+	.track-my-bus .d-table-cell {
+		height: 260px;
+	}
+
+
+.ios-android-container > div::after {
+	content: "";
+	background-image: url(https://i.postimg.cc/MK7ZzDzX/city-scape-app-download.png);
+	opacity: 0.2;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: absolute;
+	z-index: -1;
+}
+
+       
