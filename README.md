@@ -34,3 +34,4 @@ Below is the block diagram representing the architecture of the travel and touri
 ![Block Diagram](./assets/Design/Blockdiagram.jpg)
 
 
+
