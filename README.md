@@ -10,7 +10,6 @@ Welcome to our **Travel Website Project**! This repository contains the code and
 - 🔍 User-friendly search and navigation to find the perfect getaway.
 - 🧳 Booking options for **flights**, **hotels**, **trains**, **cabs**, and more — all in one place.
 - 💬 Engage with the travel community by sharing your experiences and reading others' stories.
-- 📸 *[Optional]* Include screenshots or a live demo link to showcase the website’s UI.
 
 ---
 
@@ -32,8 +31,6 @@ The platform is thoughtfully designed and fully customized to serve both travel 
 ## 🔒 Block Diagram
 
 Below is the block diagram representing the architecture of the travel and tourism management system:
+![Block Diagram](./assets/Design/Blockdiagram.jpg)
 
-![Block Diagram](./Blockdiagram.jpg)
-
-> *(Ensure that `Blockdiagram.jpg` is placed in the root directory of your project or adjust the relative path accordingly.)*
 
